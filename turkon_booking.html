@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TURKON Booking</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='caucasus.png') }}">
+
+        <link rel="stylesheet" href="/static/bootstrap.css"></link>
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>    
+    <style>
+      body
+      {
+        background-repeat:no-repeat;
+        background-attached:fixed;
+        background-size:cover;
+        background-image:url({{url_for('static', filename='images/turkon_back.jpg')}})
+      }
+.col-md-6 {
+    width: 100%;
+    top: 105px;
+}
+/*Progress ბარი*/
+    .progress {
+    height: 30px;
+    line-height: 35px;
+    background: #a5a5a5;
+    box-shadow: none;
+    padding: 6px;
+    margin-top: 20px;
+    overflow: visible;
+    border-radius: 10px;
+}
+
+.progress:after {
+    content: "";
+    display: block;
+    border-top: 4px dashed #fff;
+    margin-top: 8px;
+}
+
+.progressbar-title {
+    position: relative;
+    top: -70px;
+    color: #e31212;
+    font-size: 15px;
+    margin: 5px 0;
+    width: 200px;
+    background-color: #eae2e2;
+    height: 20px;
+    border-radius:7px
+}
+
+.progress .progress-bar {
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    animation: animate-positive 2s;
+}
+
+.progress .progress-bar span {
+    position: absolute;
+    top: -75px;
+    right: -60px;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 7px;
+    background: #333;
+    border-radius:35px;
+    width:100px;
+    height:70px;
+    z-index: 1
+}
+
+.progress .progress-bar span:before {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 43px;
+    border: 7px solid transparent;
+    border-top: 7px solid #333;
+    z-index: 1
+}
+
+.progress .progress-bar span:after {
+    content: "<>";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 30px;
+    color: #333;
+    position: absolute;
+    top: 75px;
+    right: 33px;
+    z-index: 1
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+.col-md-6 {
+    width: 100%;
+}
+
+
+/**/
+.bar-step {
+    position:absolute;
+    margin-top:-20px;
+	z-index:1;
+    font-size:12px;
+}
+
+.label-txt {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -691px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txtpor {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -691px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+.label-txt1 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    left: -511px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt11 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    left: -511px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-txt2 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -327px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt22 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -327px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-txt3 {
+    float: left;
+    position: absolute;
+    width: 150px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -135px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt33 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -125px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-txt4 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 76px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt44 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: 76px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-txt5 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 274px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt55 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12x;
+    left: 274px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-txt6 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 150px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 274px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt66 {
+    float: left;
+    position: absolute;
+    width: 197px;
+    top: 295px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12x;
+    left: 274px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+
+
+
+
+.label-txt7 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 450px;
+    display: table;
+    margin: 0px auto 0px auto;
+    font-size: 20px;
+    background-color: #d3e6d3f2;
+    color: #f04343;
+    border-radius: 20px;
+}
+.label-txt77 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 110px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12x;
+    left: 450px;
+    background-color: #f9f9f9c9;
+    border-radius: 15px;
+}
+
+.label-line {
+    float: right;
+    background: #cc1919;
+    height: 63px;
+    width: 6px;
+    margin-left: 5px;
+    margin-top: 14px;
+}
+
+.label-percent {
+    float: right;
+    margin-left: -8px;
+    margin-top: -25px;;   
+}
+img {
+    width: 90px;
+    height: 60px;
+    border-radius:35px;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: absolute;
+    top: -68px;
+}
+/**/
+.one, .two, .three, .four, .five, .six, .seven{
+    position:absolute;
+	margin-top:-10px;
+	z-index:1;
+	height:40px;
+	width:40px;
+	border-radius:25px;
+	
+}
+.one{
+	left:0%;
+}
+.two{
+	left:15%;
+}
+.three{
+	left:31%;
+}
+.four{
+    left:48%;
+}
+.five{
+    left:65%;
+}
+.six{
+    left:82%;
+}
+.seven{
+    left:96%;
+}
+.primary-color{
+	background-color:#4989bd;
+}
+.success-color{
+	background-color:#5cb85c;
+}
+.danger-color{
+	background-color:#d9534f;
+}
+.warning-color{
+	background-color:#f0ad4e;
+}
+.info-color{
+	background-color:#5bc0de;
+}
+.no-color{
+	background-color:inherit;
+}
+
+
+
+
+
+
+
+/*მონაცემების ფორმა*/
+#labels {
+    height: 150px;
+    width: 500px;
+    float: left;
+}
+
+#inputs {
+    height: 150px;
+    width: 180px;
+    float: left;
+}
+
+input {
+    margin-bottom: -2px;
+    margin-top: 9px;
+    width: 285;
+    left: 120px;
+    display: inline-block;
+    position: relative;
+    top: 8;
+    background-color: wheat;
+    border-radius: 6px;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 19px;
+    margin-bottom: 7px;
+    line-height: 9px;
+    margin-left: 7px;
+    font-size: 16px;
+}
+h1 {
+    width: 400px;
+    font-weight: bold;
+    background: #f06f6f;
+    height: 19px;
+    inline-size: max-content;
+    border-radius: 7px;
+}
+#form {
+    display: -webkit-inline-box;
+    height: 360px;
+    width: 900px;
+    margin: 0px auto;
+    position: relative;
+    top: 25px;
+    border: 1px #dc3131 solid;
+    left: 8px;
+    border-radius: 10px;
+    background-color: #f5fffab3;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: absolute;
+    top: -68px;
+    color: red;
+    background-color: #f4f4f4;
+    border-radius: 7px;
+}
+.bd-example {
+        position: absolute;
+        height: 260px;
+        display: flex;
+        top: 40px;
+        left: 920px;
+        }
+.bd-example img {
+    border-radius: 0;
+    width: 400px;
+    height: 280px;
+    top: -29px;
+    position: absolute;
+}        
+    </style>
+    </head>
+    <body>
+    <div class="bd-example" align="middle">
+ 
+    <img src="{{url_for('static', filename='images/caucasus.png')}}" align="right" />
+            
+    </div>
+    <h1>გადამზიდი კომპანია: {{titlei}}</h1>
+    <div id="form">
+        <form name="passdata">
+                <div id="labels">
+                    <h3>Container Number: {{container}}</h3>
+                    <h3>Voyage: {{voyg}}</h3>
+                    <h3>vessel: {{veso}}</h3>
+                    <h3>POL: {{poli}}</h3>
+                    <h3>Transshipment: {{tr}}</h3>
+                    <h3>POD: {{podi}}</h3>
+                    <h3>Departed On: {{depon}}</h3>
+                    <h3>Transshipment ETA：{{treta}}</h3>
+                    <h3>POD ETA: {{podeta}}</h3>
+                    
+                    
+                </div>     
+            </div>  
+        </form>
+    </div>      
+
+
+
+       <div class="container">
+               
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="progressbar-title">გემის ადგილმდებარეობა</h3>
+            <div class="progress">
+                <div class="bar-step" style="left: 55%;">
+                    <div class="label-txt">Booked</div>
+                    <div class="label-txtpor">{{por}}</div>
+                    <div class="label-txt1">Rcvd Full</div>
+                    <div class="label-txt11">{{rfull}}</div>
+                    <div class="label-txt2">Sailed</div>
+                    <div class="label-txt22">{{sail}}</div>
+                    <div class="label-txt3">Transit Loaded</div>
+                    <div class="label-txt33">{{tloaded}}</div>
+                    <div class="label-txt4">Arrived</div>
+                    <div class="label-txt44">{{last_pod}}</div>
+                    <div class="label-txt5">Dsptch Full</div>
+                    <div class="label-txt55">{{fnd}}</div>
+                    <div class="label-txt7">Rcvd Empty</div>
+                    <div class="label-txt77">{{fnd}}</div>
+                    <div class="label-percent"></div>
+                </div>
+                <div class="one primary-color"></div><div class="two primary-color"></div><div class="three primary-color"></div><div class="four primary-color"></div><div class="five primary-color"></div><div class="six primary-color"></div><div class="seven primary-color"></div>
+                <label>{{veso}}</label>
+                <div class="progress-bar" style="width:{{tim}}%;">
+                    <span><img src='static/images/gemi.gif'></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            
+    </body>
+</html>

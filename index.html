@@ -1,0 +1,70 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>Track Ships</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='caucasus.png') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+      body
+      {
+        background-repeat:no-repeat;
+        background-attached:fixed;
+        background-size:cover;
+        background-image:url({{url_for('static', filename='images/background.jpg')}})
+      }
+       .bd-example {
+        position: absolute;
+        height: 260px;
+        display: flex;
+        top: 40px;
+        left: 820px;
+        }
+    </style>
+  </head>
+  <body>
+  <div class="bd-example" align="middle">
+ 
+  <img src="{{url_for('static', filename='images/caucasus.png')}}" align="right" />
+          
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <h1>გაიგეთ ინფორმაცია გემის/კონტეინერის ადგილმდებარეობის შესახებ</h1>
+
+          <br></br>
+              <div id="form">
+                <form name="passdata" action="." method="post">
+                        <div id="labels">
+                          <label>ტრეკინგ კოდი</label><br>
+                          <label>ელ. ფოსტა</label><br>
+                          <label>ტელ. ნომერი</label><br>
+                        </div>
+                        <div id="inputs">
+                          <input placeholder = "ჩაწერეთ კონტეინერის ან ბუქინგის ნომერი" name = "name"><br>
+                          <input placeholder = "ჩაწერეთ თქვენი ელექტრონული ფოსტა" type = "email" name = "email"><br>
+                          <input placeholder = "ჩაწერეთ თქვენი ტელეფონის ნომერი" name = "age"><br>
+                        </div>     
+                    </div>  
+                
+                    <br></br>
+                
+              
+                    <div class="selectdiv">
+                      <div class="input-group">
+                          <span class="input-group-addon">აირჩიეთ გადამზიდი</span>
+                              <select name="comp_select" class="selectpicker form-control" id="tracker">
+                                {% for o in data %}
+                                <option value="{{ o.name }}">{{ o.name }}</option>
+                                {% endfor %}
+                              </select>
+                      </div>
+                      <button type="submit" class="custom-btn btn-9">მონაცემების გაგზავნა</button>
+                    </div>
+                </form>
+      </div>  
+    </div>
+  </div>
+  </body>
+</html>

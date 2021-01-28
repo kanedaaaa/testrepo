@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>pass</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="/static/bootstrap.css"></link>
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>    
+    <style>
+      body
+      {
+        background-repeat:no-repeat;
+        background-attached:fixed;
+        background-size:cover;
+        background-image:url({{url_for('static', filename='images/background.jpg')}})
+      }
+
+    /*Progress ბარი*/
+    .progress {
+    height: 30px;
+    line-height: 35px;
+    background: #a5a5a5;
+    box-shadow: none;
+    padding: 6px;
+    margin-top: 20px;
+    overflow: visible;
+    border-radius: 10px;
+}
+
+.progress:after {
+    content: "";
+    display: block;
+    border-top: 4px dashed #fff;
+    margin-top: 8px;
+}
+
+.progressbar-title {
+    color: #333;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.progress .progress-bar {
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    animation: animate-positive 2s;
+}
+
+.progress .progress-bar span {
+    position: absolute;
+    top: -75px;
+    right: -60px;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 7px;
+    background: #333;
+    border-radius:35px;
+    width:100px;
+    height:70px;
+    z-index: 1
+}
+
+.progress .progress-bar span:before {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 43px;
+    border: 7px solid transparent;
+    border-top: 7px solid #333;
+    z-index: 1
+}
+
+.progress .progress-bar span:after {
+    content: "<>";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 30px;
+    color: #333;
+    position: absolute;
+    top: 75px;
+    right: 33px;
+    z-index: 1
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+.col-md-6 {
+    width: 100%;
+}
+
+
+/**/
+.bar-step {
+    position:absolute;
+    margin-top:-20px;
+	z-index:1;
+    font-size:12px;
+}
+
+.label-txt {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -691px;
+}
+.label-txtpor {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -691px;
+}
+.label-txt1 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    left: -477px;
+}
+.label-txt11 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    left: -477px;
+}
+
+.label-txt2 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -270px;
+}
+.label-txt22 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -270px;
+}
+
+.label-txt3 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: -60px;
+}
+.label-txt33 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: -60px;
+}
+
+.label-txt4 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 154px;
+}
+.label-txt44 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    left: 154px;
+}
+
+.label-txt5 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 70px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    left: 432px;
+}
+.label-txt55 {
+    float: left;
+    position: absolute;
+    width: 132px;
+    top: 105px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 12x;
+    left: 432px;
+}
+
+
+.label-line {
+    float: right;
+    background: #cc1919;
+    height: 63px;
+    width: 6px;
+    margin-left: 5px;
+    margin-top: 14px;
+}
+
+.label-percent {
+    float: right;
+    margin-left: -8px;
+    margin-top: -25px;;   
+}
+img {
+    width: 90px;
+    height: 60px;
+    border-radius:35px;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: absolute;
+    top: -68px;
+}
+/**/
+.one, .two, .three, .four, .five, .six{
+    position:absolute;
+	margin-top:-10px;
+	z-index:1;
+	height:40px;
+	width:40px;
+	border-radius:25px;
+	
+}
+.one{
+	left:0%;
+}
+.two{
+	left:18%;
+}
+.three{
+	left:36%;
+}
+.four{
+    left:54%;
+}
+.five{
+    left:72%;
+}
+.six{
+    left:96%;
+}
+.primary-color{
+	background-color:#4989bd;
+}
+.success-color{
+	background-color:#5cb85c;
+}
+.danger-color{
+	background-color:#d9534f;
+}
+.warning-color{
+	background-color:#f0ad4e;
+}
+.info-color{
+	background-color:#5bc0de;
+}
+.no-color{
+	background-color:inherit;
+}
+    </style>
+    </head>
+    <body>
+    
+        <h1>მონაცემები ვერ მოიძებნა, გთხოვთ გაიმეოროთ ძებნა! დამატებითი კითხვების შემთხვევაში მიმართეთ ადმინისტრაციას</h1>
+        
+        <br></br>
+
+       <div class="container">
+               
+    
+           
+    </body>
+</html>

@@ -1,0 +1,228 @@
+body {
+    background: transparent;
+}
+
+.selectdiv {
+    position: relative;
+    /*Don't really need this just for demo styling*/
+    float: left;
+    min-width: 200px;
+    margin: 15px 0%;
+}
+
+
+/* IE11 hide native button (thanks Matt!) */
+
+select::-ms-expand {
+    display: none;
+}
+
+.selectdiv:after {
+    content: '<>';
+    font: 17px "Consolas", monospace;
+    color: #333;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 11px;
+    /*Adjust for position however you want*/
+    top: 40px;
+    padding: 0 0 2px;
+    border-bottom: 1px solid #999;
+    /*left line */
+    position: absolute;
+    pointer-events: none;
+}
+
+.selectdiv select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 50px;
+    float: right;
+    margin: 5px 0px;
+    padding: 0px 24px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-color: #dc3131;
+    background-image: none;
+    border: 1px solid #cccccc;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
+#labels {
+    height: 150px;
+    width: 120px;
+    float: left;
+}
+
+#inputs {
+    height: 150px;
+    width: 180px;
+    float: left;
+}
+
+input {
+    margin-bottom: 7px;
+    width: 285;
+    left: 7px;
+    display: inline-block;
+    position: relative;
+    top: 8;
+    background-color: wheat;
+    border-radius: 6px;
+}
+
+label {
+    line-height: 30px;
+}
+
+#form {
+    display: -webkit-inline-box;
+    height: 98px;
+    width: 415px;
+    margin: 0px auto;
+    position: relative;
+    top: -7px;
+    border: 1px #dc3131 solid;
+    left: -3px;
+    border-radius: 10px;
+    background-color: #f5fffa87;
+}
+
+#sub {
+    position: relative;
+    left: 110px;
+}
+
+ul.progress-bar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none;
+}
+
+li.section {
+    display: inline-block;
+    padding-top: 45px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+    color: gray;
+    vertical-align: top;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li.section:before {
+    content: 'x';
+    position: absolute;
+    top: 2px;
+    left: calc(50% - 15px);
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 17px;
+    line-height: 30px;
+    background: gray;
+}
+
+.status-bar {
+    height: 2px;
+    background: gray;
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+}
+
+.current-status {
+    height: 2px;
+    width: 0;
+    border-radius: 1px;
+    background: mediumseagreen;
+}
+
+@keyframes changeBackground {
+    from {
+        background: gray
+    }
+    to {
+        background: mediumseagreen
+    }
+}
+
+li.section.visited:before {
+    content: '\2714';
+    animation: changeBackground .5s linear;
+    animation-fill-mode: forwards;
+}
+
+li.section.visited.current:before {
+    box-shadow: 0 0 0 2px mediumseagreen;
+}
+
+button {
+    margin: 20px;
+}
+
+.custom-btn {
+    color: #fff;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+
+/* 9 */
+
+.btn-9 {
+    color: #fff352;
+    border: 1px solid #fff352;
+    box-shadow: 0 0 5px #fff352, 0 0 5px #fff352 inset;
+    z-index: 2;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: 250;
+    background-color: teal;
+}
+
+.btn-9:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-9:hover {
+    color: #000;
+}
+
+.btn-9:hover:after {
+    background: #fff352;
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 1), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, 1), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
